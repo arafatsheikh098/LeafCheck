@@ -103,6 +103,18 @@ def _g_solid_c() -> Image.Image:
     return solid((30, 30, 200))
 
 
+def _g_solid_d() -> Image.Image:
+    return solid((220, 220, 30))
+
+
+def _g_solid_e() -> Image.Image:
+    return solid((30, 220, 220))
+
+
+def _g_solid_f() -> Image.Image:
+    return solid((220, 30, 220))
+
+
 def _g_gradient_1() -> Image.Image:
     return gradient(seed=1)
 
@@ -127,6 +139,9 @@ _GENERATORS = {
     "solid_a": _g_solid_a,
     "solid_b": _g_solid_b,
     "solid_c": _g_solid_c,
+    "solid_d": _g_solid_d,
+    "solid_e": _g_solid_e,
+    "solid_f": _g_solid_f,
     "gradient_1": _g_gradient_1,
     "gradient_2": _g_gradient_2,
     "gradient_3": _g_gradient_3,

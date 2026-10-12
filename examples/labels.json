@@ -1,0 +1,26 @@
+{
+  "leaf_00.jpg": {
+    "expected_class": "class_0",
+    "description": "Hand-picked synthetic image (generator=gradient_1, seed=9000) expected to predict class_0."
+  },
+  "leaf_01.jpg": {
+    "expected_class": "class_1",
+    "description": "Hand-picked synthetic image (generator=gradient_2, seed=9001) expected to predict class_1."
+  },
+  "leaf_02.jpg": {
+    "expected_class": "class_2",
+    "description": "Hand-picked synthetic image (generator=gradient_3, seed=9002) expected to predict class_2."
+  },
+  "leaf_03.jpg": {
+    "expected_class": "class_3",
+    "description": "Hand-picked synthetic image (generator=solid_a, seed=9003) expected to predict class_3."
+  },
+  "leaf_04.jpg": {
+    "expected_class": "class_4",
+    "description": "Hand-picked synthetic image (generator=solid_b, seed=9004) expected to predict class_4."
+  },
+  "leaf_05.jpg": {
+    "expected_class": "class_5",
+    "description": "Hand-picked synthetic image (generator=solid_c, seed=9005) expected to predict class_5."
+  }
+}

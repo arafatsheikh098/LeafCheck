@@ -4,15 +4,22 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
-class TopClass(BaseModel):
+# `model_loaded` collides with Pydantic v2's protected `model_*` namespace;
+# opt out so the warning goes away (and so the field name stays in the JSON
+# response contract that F5 defines).
+class _NoModelNS(BaseModel):
+    model_config = ConfigDict(protected_namespaces=())
+
+
+class TopClass(_NoModelNS):
     class_name: str = Field(alias="class")
     confidence: float
 
 
-class PredictResponse(BaseModel):
+class PredictResponse(_NoModelNS):
     class_name: str
     confidence: float
     not_sure: bool
@@ -20,11 +27,11 @@ class PredictResponse(BaseModel):
     advice: dict[str, Any] | None = None
 
 
-class ClassesResponse(BaseModel):
+class ClassesResponse(_NoModelNS):
     classes: list[str]
 
 
-class ModelInfoResponse(BaseModel):
+class ModelInfoResponse(_NoModelNS):
     model_loaded: bool
     num_classes: int
     image_size: int
@@ -32,7 +39,7 @@ class ModelInfoResponse(BaseModel):
     metrics: dict[str, Any] | None
 
 
-class HealthResponse(BaseModel):
+class HealthResponse(_NoModelNS):
     status: str
     service: str
     model_loaded: bool

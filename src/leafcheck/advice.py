@@ -1,4 +1,4 @@
-"""F7: load `data/advice.json` and surface per-class advice.
+r"""F7: load `data/advice.json` and surface per-class advice.
 
 The advice file is keyed by class name (matching `models/class_names.json`).
 Each entry has:
@@ -8,7 +8,8 @@ Each entry has:
     reviewer signs off on the text.
 
 F7.AC2: this module is also the home of the dose-pattern guard that
-rejects any string containing `\d+\s*(ml|mg|g/L|kg/ha)` or a brand word.
+rejects any string containing a dose pattern like ``\d+\s*(ml|mg|g/L|kg/ha)``
+or a brand word.
 """
 
 from __future__ import annotations
