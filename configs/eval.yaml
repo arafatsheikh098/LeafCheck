@@ -1,0 +1,5 @@
+# Evaluation config (consumed by `python -m leafcheck.evaluate --config configs/eval.yaml`).
+# Most options are CLI args; this file is the place to add future knobs
+# (e.g. per-perturbation severities, bucket edges).
+target_precision: 0.95
+image_size: 224

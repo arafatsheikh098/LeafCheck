@@ -2,13 +2,13 @@
   "history": [
     {
       "epoch": 0,
-      "train_loss": 1.3808521156880393,
+      "train_loss": 1.385554173099461,
       "val_macro_f1": 0.08571428571428572,
       "val_acc": 0.20689655172413793
     }
   ],
   "best_val_macro_f1": 0.08571428571428572,
-  "elapsed_seconds": 5.348307132720947,
+  "elapsed_seconds": 5.691020965576172,
   "imbalance_ratio": 1.125,
   "weighted_loss_used": false,
   "class_count": 4,
