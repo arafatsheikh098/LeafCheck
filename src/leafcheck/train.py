@@ -96,7 +96,12 @@ class SyntheticDataset(Dataset):
             per_class_list = list(per_class)
         self.n_classes = n_classes
         self.items: list[tuple[Image.Image, int]] = []
-        names = sorted(_GENERATORS)[:n_classes]
+        # Curated order so the first 6 are mutually distinct: 3 gradients
+        # then 3 solids. The alphabetical sort of _GENERATORS would put
+        # the two blob_* generators first, which are too similar for the
+        # model to discriminate reliably. See DECISIONS.md D8.
+        names = ["gradient_1", "gradient_2", "gradient_3",
+                 "solid_a", "solid_b", "solid_c"][:n_classes]
         for cls_idx, name in enumerate(names):
             gen = _GENERATORS[name]
             for sample in range(per_class_list[cls_idx]):

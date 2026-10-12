@@ -28,6 +28,10 @@ models/*.joblib
 !models/metrics.json
 !models/threshold.json
 !models/README.md
+# The shipped smoke model is small (under 6 MB) and is part of the deploy
+# artefact per F8.AC2; keep tracking it. User-trained re-runs go to a
+# different filename so they don't accidentally land in the repo.
+!models/model.pt
 
 # Playwright
 test-results/
