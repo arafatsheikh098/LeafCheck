@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+build/
+dist/
+
+# Testing / lint caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local data and large artifacts (rebuilt by the pipeline)
+data/
+!data/.gitkeep
+!data/advice.json
+!data/DATASET_INFO.md
+models/*.pt
+models/*.pkl
+models/*.joblib
+!models/.gitkeep
+!models/class_names.json
+!models/metrics.json
+!models/threshold.json
+!models/README.md
+
+# Playwright
+test-results/
+playwright-report/
+.playwright/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
