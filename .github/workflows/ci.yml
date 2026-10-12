@@ -47,8 +47,12 @@ jobs:
         run: |
           pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.4.1" "torchvision==0.19.1"
           pip install -e ".[dev]"
+      # F3.AC4: synthetic smoke training must finish in <2 min. The
+      # smoke config writes to `models/` by default; we override the
+      # output dir to a tmp path so CI never clobbers the shipped
+      # `models/model.pt` + class_names.json (which are 6-class per
+      # F8.AC2 / G5).
       - name: Run smoke training (synthetic, <2 min)
         run: |
-          timeout 120 python -m leafcheck.train --config configs/smoke.yaml || \
-            echo "::warning::smoke-train not yet wired up; will be added in M3"
-        continue-on-error: true
+          timeout 120 python -m leafcheck.train --config configs/smoke.yaml \
+            --override output_dir=/tmp/ci_smoke_model
