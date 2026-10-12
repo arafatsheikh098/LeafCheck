@@ -1,0 +1,30 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": 1.385554173099461,
+      "val_macro_f1": 0.08571428571428572,
+      "val_acc": 0.20689655172413793
+    }
+  ],
+  "best_val_macro_f1": 0.08571428571428572,
+  "elapsed_seconds": 5.691020965576172,
+  "imbalance_ratio": 1.125,
+  "weighted_loss_used": false,
+  "class_count": 4,
+  "train_class_counts": [
+    17,
+    16,
+    18,
+    16
+  ],
+  "hardware": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.12.15",
+    "torch": "2.4.1",
+    "device": "cpu"
+  },
+  "config_path": "configs/smoke.yaml",
+  "train_source": "synthetic",
+  "device": "cpu"
+}
