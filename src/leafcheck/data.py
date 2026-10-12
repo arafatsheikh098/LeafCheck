@@ -354,12 +354,17 @@ def prepare(
     # Build the data report.
     class_counts: dict[str, int] = defaultdict(int)
     group_counts: dict[str, int] = defaultdict(int)
+    group_count_by_class: dict[str, int] = defaultdict(int)
     split_counts: dict[str, int] = defaultdict(int)
+    seen_groups_per_class: dict[str, set[str]] = defaultdict(set)
     for _, cls, gid in edges:
         split = group_to_split.get((cls, gid), "train")
         class_counts[cls] += 1
         group_counts[gid] += 1
         split_counts[split] += 1
+        seen_groups_per_class[cls].add(gid)
+    for cls, gids in seen_groups_per_class.items():
+        group_count_by_class[cls] = len(gids)
 
     report = {
         "source": str(source),
@@ -369,6 +374,7 @@ def prepare(
         "duplicate_images_in_groups": duplicates,
         "class_count": len(class_counts),
         "group_count": len(group_counts),
+        "group_count_by_class": dict(group_count_by_class),
         "split_count": dict(split_counts),
         "classes": sorted(class_counts),
         "ratios": ratios,
