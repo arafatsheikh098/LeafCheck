@@ -100,8 +100,9 @@ class SyntheticDataset(Dataset):
         # then 3 solids. The alphabetical sort of _GENERATORS would put
         # the two blob_* generators first, which are too similar for the
         # model to discriminate reliably. See DECISIONS.md D8.
-        names = ["gradient_1", "gradient_2", "gradient_3",
-                 "solid_a", "solid_b", "solid_c"][:n_classes]
+        names = ["gradient_1", "gradient_2", "gradient_3", "solid_a", "solid_b", "solid_c"][
+            :n_classes
+        ]
         for cls_idx, name in enumerate(names):
             gen = _GENERATORS[name]
             for sample in range(per_class_list[cls_idx]):
@@ -344,15 +345,52 @@ def _load_config(path: Path) -> dict[str, Any]:
     return cfg
 
 
+def _apply_overrides(cfg: dict[str, Any], overrides: list[str]) -> dict[str, Any]:
+    """Apply `--override key=value` pairs on top of the loaded config.
+
+    The smoke-train CI job uses this to redirect the output dir to
+    `/tmp/...` so the shipped `models/` is never overwritten.
+    """
+    out = dict(cfg)
+    for raw in overrides:
+        if "=" not in raw:
+            raise ValueError(f"--override expects key=value, got: {raw!r}")
+        key, _, value = raw.partition("=")
+        key = key.strip()
+        if not key:
+            raise ValueError(f"--override empty key in: {raw!r}")
+        # Coerce values that look like numbers / bools, leave the rest as strings.
+        try:
+            out[key] = int(value)
+        except ValueError:
+            try:
+                out[key] = float(value)
+            except ValueError:
+                low = value.lower()
+                if low in {"true", "false"}:
+                    out[key] = low == "true"
+                else:
+                    out[key] = value
+    return out
+
+
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="leafcheck.train")
     p.add_argument("--config", required=True, type=Path)
+    p.add_argument(
+        "--override",
+        action="append",
+        default=[],
+        metavar="KEY=VALUE",
+        help="Override a config key (repeatable). Values are coerced to int/float/bool when possible.",
+    )
     return p
 
 
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
-    metrics = train(_load_config(args.config))
+    cfg = _apply_overrides(_load_config(args.config), args.override)
+    metrics = train(cfg)
     print(
         json.dumps(
             {

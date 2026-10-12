@@ -121,6 +121,30 @@ def test_smoke_training_finishes_under_two_minutes(smoke_cfg: dict) -> None:
     assert elapsed < 120, f"smoke training took {elapsed:.1f}s; budget is 120s"
 
 
+def test_apply_overrides_replaces_keys(tmp_path: Path) -> None:
+    """CI smoke-train uses --override to redirect output_dir away from shipped models/."""
+    cfg = train_mod._load_config(SMOKE_PATH)
+    overridden = train_mod._apply_overrides(cfg, [f"output_dir={tmp_path}/custom"])
+    assert overridden["output_dir"] == str(tmp_path / "custom")
+
+
+def test_apply_overrides_coerces_types() -> None:
+    cfg = {"a": "1", "b": "2.5", "c": "true", "d": "string"}
+    out = train_mod._apply_overrides(cfg, ["a=99", "b=0.5", "c=false", "d=kept"])
+    assert out["a"] == 99 and isinstance(out["a"], int)
+    assert out["b"] == 0.5 and isinstance(out["b"], float)
+    assert out["c"] is False
+    assert out["d"] == "kept"
+
+
+def test_apply_overrides_rejects_malformed() -> None:
+    cfg: dict = {}
+    with pytest.raises(ValueError):
+        train_mod._apply_overrides(cfg, ["no_equals_sign"])
+    with pytest.raises(ValueError):
+        train_mod._apply_overrides(cfg, ["=missing_key"])
+
+
 # ---------- helpers ----------
 
 
