@@ -1,0 +1,17 @@
+batch_size: 16
+data_root: tests/_smoke_data
+device: cpu
+early_stop_patience: 2
+epochs: 1
+image_size: 96
+imbalance_threshold: 3.0
+lr: 0.01
+momentum: 0.9
+num_classes: 4
+optimizer: sgd
+output_dir: models
+pretrained: false
+seed: 42
+synth_classes: 4
+synth_per_class: 24
+weight_decay: 0.0001

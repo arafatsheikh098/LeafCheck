@@ -1,0 +1,16 @@
+# Full training config (used by `scripts/train_full.sh` on a GPU machine).
+# Locally on CPU, prefer `configs/smoke.yaml`.
+seed: 42
+image_size: 224
+epochs: 10
+batch_size: 32
+lr: 0.01
+optimizer: sgd
+momentum: 0.9
+weight_decay: 0.0001
+early_stop_patience: 3
+imbalance_threshold: 3.0
+pretrained: true
+device: cuda  # change to cpu if no GPU is available
+data_root: data/manifest.csv  # produced by M2's `leafcheck.data prepare`
+output_dir: models

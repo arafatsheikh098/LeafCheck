@@ -1,0 +1,20 @@
+# Smoke training config: tiny synthetic dataset, finishes in <2 minutes.
+# Used by CI and `make train-smoke`. Not the production training config —
+# see configs/train.yaml for the full PlantVillage training config.
+seed: 42
+image_size: 96
+num_classes: 4  # matches the synthetic dataset generator
+epochs: 1
+batch_size: 16
+lr: 0.01
+optimizer: sgd
+momentum: 0.9
+weight_decay: 0.0001
+early_stop_patience: 2
+imbalance_threshold: 3.0
+pretrained: false  # offline-friendly; download once on a real machine
+device: cpu
+data_root: tests/_smoke_data
+output_dir: models
+synth_classes: 4
+synth_per_class: 24
