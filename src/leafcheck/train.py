@@ -298,6 +298,7 @@ def train(config: dict[str, Any]) -> dict[str, Any]:
         "weighted_loss_used": use_weighted,
         "class_count": len(train_class_counts),
         "train_class_counts": train_class_counts,
+        "image_size": image_size,
         "hardware": _hardware_info(),
         "config_path": str(config.get("_config_path", "")),
         "train_source": train_source,

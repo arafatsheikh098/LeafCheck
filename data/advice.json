@@ -1,0 +1,97 @@
+{
+  "Tomato_Bacterial_spot": {
+    "en": "Small dark spots with yellow halos on leaves and fruit. Remove badly affected leaves, avoid overhead watering, and rotate crops next season. Confirm with a local extension agent — this model is trained on lab images, so field accuracy may be lower.",
+    "bn": "পাতা ও ফলে হলুদ বলয়সহ ছোট গাঢ় দাগ। খারাপভাবে আক্রান্ত পাতা ছাঁটাই করুন, উপর থেকে জল দেওয়া এড়িয়ে চলুন এবং পরের মৌসুমে ফসল পরিবর্তন করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন — এই মডেল গবেষণাগারের ছবিতে প্রশিক্ষিত, তাই মাঠের নির্ভুলতা কম হতে পারে।",
+    "reviewed_by_human": false
+  },
+  "Tomato_Early_blight": {
+    "en": "Concentric brown rings on lower leaves. Prune affected leaves, mulch the base, water at the soil level. Confirm with a local extension agent — this model is trained on lab images, so field accuracy may be lower.",
+    "bn": "নিচের পাতায় বাদামি ঘনকেন্দ্রিক রিং। আক্রান্ত পাতা ছাঁটাই করুন, গোড়ায় মালচ দিন, মাটির স্তরে জল দিন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন — এই মডেল গবেষণাগারের ছবিতে প্রশিক্ষিত, তাই মাঠের নির্ভুলতা কম হতে পারে।",
+    "reviewed_by_human": false
+  },
+  "Tomato_Late_blight": {
+    "en": "Greasy grey patches on leaves and stems, white growth under leaves. Act fast — remove and destroy affected plants (do not compost), improve airflow, avoid overhead watering. Confirm with a local extension agent immediately.",
+    "bn": "পাতা ও কাণ্ডে তৈলাক্ত ধূসর দাগ, পাতার নিচে সাদা ছাতার মতো জন্ম। দ্রুত পদক্ষেপ নিন — আক্রান্ত গাছ তুলে ধ্বংস করুন (কম্পোস্ট করবেন না), বায়ু চলাচল বাড়ান, উপর থেকে জল দেওয়া এড়িয়ে চলুন। অবিলম্বে স্থানীয় কৃষি কর্মকর্তার সাথে যোগাযোগ করুন।",
+    "reviewed_by_human": false
+  },
+  "Tomato_Leaf_Mold": {
+    "en": "Pale green to yellow spots on top of leaves with olive-green mould underneath. Common in humid greenhouses — increase ventilation, reduce humidity, remove affected leaves. Confirm with a local extension agent.",
+    "bn": "পাতার উপর হালকা সবুজ থেকে হলুদ দাগ, নিচে জলপাই-সবুজ ছাতা। আর্দ্র গ্রিনহাউসে সাধারণ — বায়ু চলাচল বাড়ান, আর্দ্রতা কমান, আক্রান্ত পাতা সরান। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Tomato_Septoria_leaf_spot": {
+    "en": "Many small circular spots with dark borders and grey centres, usually on lower leaves. Remove infected leaves, mulch, water at soil level, rotate crops. Confirm with a local extension agent.",
+    "bn": "নিচের পাতায় অনেক ছোট বৃত্তাকার দাগ — গাঢ় প্রান্ত এবং ধূসর কেন্দ্র। আক্রান্ত পাতা ছাঁটাই, মালচ দিন, মাটিতে জল দিন, ফসল পরিবর্তন করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Tomato_Spider_mites_Two_spotted_spider_mite": {
+    "en": "Fine yellow stippling on leaves, fine webbing on the underside, leaves may bronze. Spray with strong water jets to dislodge mites, increase humidity, encourage predatory mites. Confirm with a local extension agent.",
+    "bn": "পাতায় সূক্ষ্ম হলুদ ছিট, নিচে সূক্ষ্ম জাল, পাতা ব্রোঞ্জ হতে পারে। মাইট সরাতে জোরে জলের স্প্রে করুন, আর্দ্রতা বাড়ান, পরভোজী মাইট উৎসাহিত করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Tomato__Target_Spot": {
+    "en": "Brown spots with concentric rings, often on older leaves. Remove affected leaves, avoid overhead watering, rotate crops. Confirm with a local extension agent — this model is trained on lab images, so field accuracy may be lower.",
+    "bn": "বাদামি দাগে ঘনকেন্দ্রিক রিং, প্রায়ই পুরোনো পাতায়। আক্রান্ত পাতা ছাঁটাই, উপর থেকে জল দেওয়া এড়িয়ে চলুন, ফসল পরিবর্তন করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Tomato__Tomato_YellowLeaf__Curl_Virus": {
+    "en": "Upward leaf curl, yellowing, stunted growth. Transmitted by whiteflies — control them with yellow sticky traps, remove infected plants, plant resistant varieties next season. Confirm with a local extension agent.",
+    "bn": "পাতা উপরের দিকে কুঁচকানো, হলুদ হওয়া, বৃদ্ধি থেমে যাওয়া। সাদামাছি দ্বারা ছড়ায় — হলুদ আঠালো ফাঁদ দিয়ে নিয়ন্ত্রণ করুন, আক্রান্ত গাছ সরান, পরের মৌসুমে প্রতিরোধী জাত রোপণ করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Tomato__Tomato_mosaic_virus": {
+    "en": "Mottled light/dark green leaves, distorted growth. Highly contagious — wash hands and tools, remove and destroy infected plants (no compost), plant resistant varieties. Confirm with a local extension agent.",
+    "bn": "পাতায় হালকা/গাঢ় সবুজের ছোপ, বিকৃত বৃদ্ধি। অত্যন্ত ছোঁয়াচে — হাত ও সরঞ্জাম ধুয়ে নিন, আক্রান্ত গাছ ধ্বংস করুন (কম্পোস্ট নয়), প্রতিরোধী জাত রোপণ করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Tomato_healthy": {
+    "en": "Leaves look uniform and green with no spots. Keep up the good work — water at the base, mulch, and inspect plants weekly. No action needed.",
+    "bn": "পাতা সমান ও সবুজ, কোনো দাগ নেই। এভাবেই রাখুন — গোড়ায় জল দিন, মালচ দিন, প্রতি সপ্তাহে গাছ পরীক্ষা করুন। কোনো পদক্ষেপ দরকার নেই।",
+    "reviewed_by_human": false
+  },
+  "Potato___Early_blight": {
+    "en": "Dark concentric ring spots on lower leaves, often with yellow halos. Remove affected leaves, mulch, water at soil level, rotate crops. Confirm with a local extension agent.",
+    "bn": "নিচের পাতায় গাঢ় ঘনকেন্দ্রিক রিংয়ের দাগ, প্রায়ই হলুদ বলয়সহ। আক্রান্ত পাতা ছাঁটাই, মালচ দিন, মাটিতে জল দিন, ফসল পরিবর্তন করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Potato___Late_blight": {
+    "en": "Water-soaked dark lesions on leaves, white mildew underneath, can destroy a crop in days. Act immediately — remove and destroy affected plants (no compost), spray copper protectants only on confirmed diagnosis, hill soil over tubers. Confirm with a local extension agent.",
+    "bn": "পাতায় জলে ভেজা গাঢ় ক্ষত, নিচে সাদা ছাতা, কয়েক দিনে ফসল ধ্বংস করতে পারে। অবিলম্বে পদক্ষেপ নিন — আক্রান্ত গাছ ধ্বংস করুন (কম্পোস্ট নয়), নিশ্চিত রোগ নির্ণয়ের পরেই তামাযুক্ত প্রতিরক্ষামূলক স্প্রে করুন, কন্দের উপর মাটি তুলে দিন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Potato___healthy": {
+    "en": "Leaves look uniform and green with no spots. Keep hilling soil around stems, water at the base, and inspect weekly. No action needed.",
+    "bn": "পাতা সমান ও সবুজ, কোনো দাগ নেই। কাণ্ডের চারপাশে মাটি তুলে দিন, গোড়ায় জল দিন, প্রতি সপ্তাহে পরীক্ষা করুন। কোনো পদক্ষেপ দরকার নেই।",
+    "reviewed_by_human": false
+  },
+  "Corn___Common_rust": {
+    "en": "Reddish-brown raised pustules on both sides of leaves. Plant resistant hybrids next season, ensure good air circulation, and avoid overhead irrigation. Confirm with a local extension agent.",
+    "bn": "পাতার দুপাশে লালচে-বাদামি উঁচু ফুসকুড়ি। পরের মৌসুমে প্রতিরোধী হাইব্রিড রোপণ করুন, ভালো বায়ু চলাচল নিশ্চিত করুন, উপর থেকে সেচ এড়িয়ে চলুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Corn___Gray_Leaf_Spot": {
+    "en": "Long rectangular grey-tan lesions running parallel to leaf veins, especially on lower leaves. Rotate to non-corn crops for one season, reduce thatch, plant resistant hybrids. Confirm with a local extension agent.",
+    "bn": "পাতার শিরার সমান্তরালে লম্বা আয়তাকার ধূসর-ট্যান ক্ষত, বিশেষত নিচের পাতায়। এক মৌসুম অন্য ফসলে পরিবর্তন করুন, খড় কমান, প্রতিরোধী হাইব্রিড রোপণ করুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Corn___Northern_Leaf_Blight": {
+    "en": "Long, cigar-shaped grey-green lesions on leaves. Plant resistant hybrids, rotate crops, bury residue. Confirm with a local extension agent.",
+    "bn": "পাতায় লম্বা সিগার-আকৃতির ধূসর-সবুজ ক্ষত। প্রতিরোধী হাইব্রিড রোপণ করুন, ফসল পরিবর্তন করুন, অবশিষ্টাংশ মাটিতে পুঁতে দিন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Corn___healthy": {
+    "en": "Leaves look uniform and green with no spots. Continue current practices — good spacing, watering at the base, weekly scouting. No action needed.",
+    "bn": "পাতা সমান ও সবুজ, কোনো দাগ নেই। বর্তমান অনুশীলন চালিয়ে যান — ভালো দূরত্ব, গোড়ায় জল, সাপ্তাহিক পরিদর্শন। কোনো পদক্ষেপ দরকার নেই।",
+    "reviewed_by_human": false
+  },
+  "Pepper__bell___Bacterial_spot": {
+    "en": "Small, water-soaked spots that turn brown, often with yellow halos; fruit becomes scabby. Use disease-free seed, rotate crops, avoid overhead watering. Confirm with a local extension agent.",
+    "bn": "ছোট জলে ভেজা দাগ যা বাদামি হয়, প্রায়ই হলুদ বলয়সহ; ফল খোসার মতো হয়ে যায়। রোগমুক্ত বীজ ব্যবহার করুন, ফসল পরিবর্তন করুন, উপর থেকে জল দেওয়া এড়িয়ে চলুন। স্থানীয় কৃষি কর্মকর্তার সাথে নিশ্চিত হন।",
+    "reviewed_by_human": false
+  },
+  "Pepper__bell___healthy": {
+    "en": "Leaves look uniform and green with no spots. Keep up the good work — water at the base, mulch, weekly inspection. No action needed.",
+    "bn": "পাতা সমান ও সবুজ, কোনো দাগ নেই। এভাবেই রাখুন — গোড়ায় জল, মালচ, সাপ্তাহিক পরিদর্শন। কোনো পদক্ষেপ দরকার নেই।",
+    "reviewed_by_human": false
+  }
+}

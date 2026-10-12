@@ -52,6 +52,12 @@ target-version = "py311"
 select = ["E", "F", "I", "B", "UP"]
 ignore = ["E501"]
 
+[tool.ruff.lint.per-file-ignores]
+# FastAPI's `Depends(...)` in default-arg position is the documented
+# pattern for declaring DI. B008 fires anyway; silence it in the API.
+"src/leafcheck/api/*.py" = ["B008"]
+"tests/**/*.py" = ["B011"]
+
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
