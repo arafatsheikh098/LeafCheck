@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leafcheck"
+version = "0.1.0"
+description = "LeafCheck: a leaf-disease detector for tomato, potato, maize and bell pepper."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "LeafCheck contributors" }]
+# CPU-only PyTorch wheels. The Dockerfile installs the matching --index-url.
+# These constraints are checked in CI by attempting `pip install --dry-run`.
+dependencies = [
+  "torch==2.4.1",
+  "torchvision==0.19.1",
+  "Pillow==10.4.0",
+  "imagehash==4.3.1",
+  "numpy==1.26.4",
+  "scikit-learn==1.5.2",
+  "matplotlib==3.9.2",
+  "PyYAML==6.0.2",
+  "FastAPI==0.115.4",
+  "uvicorn==0.32.0",
+  "python-multipart==0.0.12",
+  "pydantic==2.9.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.3",
+  "httpx==0.27.2",
+  "pytest-playwright==0.5.2",
+  "ruff==0.6.9",
+]
+
+[project.scripts]
+leafcheck = "leafcheck.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra"
