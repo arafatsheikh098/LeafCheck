@@ -1,0 +1,10 @@
+# Data pipeline config (consumed by `python -m leafcheck.data prepare --config configs/data.yaml`).
+seed: 42
+ratios:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+# Max Hamming distance between any pair of 8-orientation perceptual hashes
+# for two images to be considered "the same group". 8 is conservative for
+# 64-bit pHash; tighten (e.g. 5) to be stricter.
+group_hamming_threshold: 8
