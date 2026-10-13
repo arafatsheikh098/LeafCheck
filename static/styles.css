@@ -72,7 +72,24 @@ button.secondary { background: var(--accent-soft); color: var(--accent); }
 .other li:last-child { border-bottom: none; }
 details > summary { cursor: pointer; padding: 8px 0; color: var(--muted); }
 .disclaimer { margin-top: 24px; padding: 12px; font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); }
+
+/* "Species the model can identify" chip list. */
+.species-gallery { margin-top: 28px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #f7faf6; }
+.species-gallery h2 { margin: 0 0 4px; font-size: 1.05rem; }
+.species-gallery p { margin: 0 0 12px; color: var(--muted); font-size: 0.9rem; }
+#knownSpeciesList { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+#knownSpeciesList .chip { padding: 4px 10px; background: #e6f0e1; color: #1f4a26; border-radius: 999px; font-size: 0.85rem; white-space: nowrap; }
+
+/* "Want more species?" call-out. */
+.more-species { margin-top: 16px; padding: 16px; border: 1px dashed var(--line); border-radius: 12px; }
+.more-species h2 { margin: 0 0 6px; font-size: 1.05rem; }
+.more-species p { margin: 0 0 8px; color: var(--muted); font-size: 0.9rem; }
+.more-species ol { margin: 0; padding-left: 20px; }
+.more-species li { margin: 4px 0; line-height: 1.45; }
+.more-species code { background: #eef3eb; padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
+
 @media (max-width: 375px) {
   body { padding: 8px; }
   header h1 { font-size: 1.3rem; }
+  .species-gallery, .more-species { padding: 12px; }
 }

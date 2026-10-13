@@ -1,1 +1,7 @@
-{"threshold": 0.0, "target_precision": 0.0, "val_precision_at_threshold": 0.0, "val_coverage_at_threshold": 1.0, "test_coverage_at_threshold": 1.0}
+{
+  "threshold": 0.69,
+  "target_precision": 0.95,
+  "val_precision_at_threshold": 0.9607843137254902,
+  "val_coverage_at_threshold": 0.8360655737704918,
+  "test_coverage_at_threshold": 0.8791208791208791
+}

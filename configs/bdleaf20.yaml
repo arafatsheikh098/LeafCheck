@@ -1,0 +1,23 @@
+# Real-data training config: BdLeaf20 species-identification model, attempt 2.
+# Settings tightened after attempt 1 (val macro-F1 0.628, test macro-F1 0.30):
+#   - lower LR (0.0005) so Adam doesn't overshoot with so few samples
+#   - more epochs (20) with early-stop patience 5
+#   - higher weight decay (5e-4) for stronger regularisation
+#   - smaller image (128) to force features, faster per-step
+#   - imbalance threshold lower (2.0) so weighted loss kicks in for the
+#     smallest class (16_Phoenix has 13 train samples)
+
+seed: 42
+image_size: 128
+epochs: 20
+batch_size: 16
+lr: 0.0005
+optimizer: adam
+momentum: 0.9
+weight_decay: 0.0005
+early_stop_patience: 5
+imbalance_threshold: 2.0
+pretrained: true
+device: cpu
+data_root: data/manifest.csv
+output_dir: models

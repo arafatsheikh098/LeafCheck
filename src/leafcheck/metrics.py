@@ -238,6 +238,10 @@ def render_eval_markdown(
     robustness: list[dict],
     class_names: list[str],
     confusion_matrix_png: Path | None,
+    dataset_label: str = (
+        'the PlantVillage "color" images, which are lab-style photos taken '
+        "against a plain background with a single leaf in frame"
+    ),
 ) -> str:
     """Render the auto-generated reports/eval.md.
 
@@ -295,13 +299,13 @@ def render_eval_markdown(
     lines.append("## Limitations (plain language)")
     lines.append("")
     lines.append(
-        "These numbers are reported on the **test split** of the PlantVillage "
-        '"color" images, which are lab-style photos taken against a plain '
-        "background with a single leaf in frame. Real field photos — uneven "
-        "lighting, occluded leaves, multiple diseases, dirt, water droplets — "
-        "will look very different and the model's accuracy will be lower. The "
-        "confidence-bucket table and the robustness table are honest attempts "
-        "to show how brittle the model is, not just how good it is on lab data."
+        f"These numbers are reported on the **test split** of {dataset_label}. "
+        "Real field photos — uneven lighting, occluded leaves, multiple "
+        "diseases or plant parts in one shot, dirt, water droplets, motion "
+        "blur — will look very different and the model's accuracy will be "
+        "lower. The confidence-bucket table and the robustness table are "
+        "honest attempts to show how brittle the model is, not just how good "
+        "it is on the test set."
     )
     lines.append("")
     return "\n".join(lines)

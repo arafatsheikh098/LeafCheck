@@ -4,24 +4,32 @@ Final scope audit. Maps every acceptance criterion in [`SCOPE.md`](SCOPE.md) to
 the test, command, or artifact that demonstrates it, and records the
 out-of-scope items that were deliberately not built.
 
+> **Note on the shipped model.** As of D12 (2026-10-12) the shipped
+> `models/model.pt` is a **real** MobileNetV3-Small trained on the
+> BdLeaf20 leaf-image dataset (9 plant species, 429 images,
+> ~40–55 per class). Test macro-F1 = 0.90, test accuracy = 0.93. The
+> `data/advice.json` and `examples/` were regenerated for the new
+> classes; the 19 PlantVillage disease entries are kept in advice.json
+> so a future PlantVillage retrain still has the lookup table ready.
+
 ## Status summary
 
 | Phase         | Status | Evidence                                                            |
 | ------------- | ------ | ------------------------------------------------------------------- |
 | M1 Foundation | done   | branch `m1-foundation` merged; project boots, `/health` 200, lint green |
 | M2 Data       | done   | branch `m2-data-pipeline` merged; CLI ships; verify subcommand green |
-| M3 Training   | done   | branch `m3-training` merged; 73/73 unit+integration green            |
+| M3 Training   | done   | branch `m3-training` merged; 76/76 unit+integration green            |
 | M4 Evaluation | done   | branch `m4-evaluation` merged; `reports/eval.md` auto-generated      |
 | M5 Inference  | done   | branch `m5-inference-api` merged; F5.AC1–6 covered                  |
 | M6 Frontend   | done   | branch `m6-frontend-advice` merged; 6/6 e2e Playwright green        |
-| M7 Deploy     | done   | branch `m7-deployment-examples` merged; 6/6 examples, Docker 1.47 GB |
+| M7 Deploy     | done   | branch `m7-deployment-examples` merged; 6/6 examples, Docker 1.50 GB |
 | H Hardening   | done   | branch `h-hardening` merged; 3× test runs all green                 |
 | F Fresh clone | done   | branch `f-fresh-clone` merged; both Docker and dev paths green       |
 | D Deployment  | done   | branch `d-deployment-prep` merged; `DEPLOY.md` + `SPACE_README.md`   |
 | R Final README| done   | branch `r-final-readme` merged; full quick-start, API, perf, arch   |
 | X This report | done   | you're reading it                                                   |
 
-Final test count: **74 unit/integration** + **6 e2e** = **80 passing** (1 deterministic skip in `test_split.py::test_different_seeds_can_differ`).
+Final test count: **76 unit/integration** + **6 e2e** = **82 passing** (1 deterministic skip in `test_split.py::test_different_seeds_can_differ`).
 
 ---
 
@@ -135,8 +143,9 @@ Per `SCOPE.md` OUT-OF-SCOPE, none of these are in the repo:
 
 ## Known limitations (called out in README)
 
-* The shipped `models/model.pt` is **trained on synthetic data** (gradients + solid colour fields) because the headless build sandbox cannot download PlantVillage. The reported `best_val_macro_f1 = 1.0` is on that synthetic data only. The README is explicit about this. Retrain against a PlantVillage copy before deploying for end users.
-* Docker image is 1.47 GB. A multi-stage build with a `slim` Python base and torch-cpu wheels could shave ~300 MB; recorded as a future-work item in `BACKLOG.md` if needed.
+* The shipped `models/model.pt` is **trained on BdLeaf20** (a small public species-ID dataset, 9 classes, 429 images, ~40–55 per class). It identifies *which plant species* the leaf belongs to — it does **not** diagnose plant diseases. The 19 PlantVillage disease entries in `data/advice.json` are kept so a future PlantVillage retrain still has the lookup table.
+* Per-class F1 ranges from 0.73 (lowest, `10_Epipremnum aureum` and `19_Rosa canina`) to 1.00 (highest) on the test split. The lowest-recall species are visually confused with `06_Citrus grandis` and `07_Coccinia grandis`. See `reports/eval.md` for the full confusion matrix.
+* Docker image is 1.50 GB. A multi-stage build with a `slim` Python base and torch-cpu wheels could shave ~300 MB; recorded as a future-work item in `BACKLOG.md` if needed.
 * No rate limiting, no auth, no TLS termination. Intended for same-origin deployments behind a reverse proxy (see `DEPLOY.md` §4).
 
 ## How to verify the project today
@@ -165,7 +174,7 @@ python3.12 -m venv .venv && .venv/bin/pip install -e ".[dev]"
 ```
 README.md             user-facing quick-start, API, perf, architecture
 SCOPE.md              the contract (F1–F8 + G1–G6)
-DECISIONS.md          in-session decisions (D1–D8)
+DECISIONS.md          in-session decisions (D1–D12)
 HARDENING.md          H-phase security + 3x stability report
 FRESH_CLONE.md        F-phase fresh-clone verification
 DEPLOY.md             D-phase deployment topologies
@@ -178,10 +187,11 @@ PROJECT_SPEC.md       original spec, source of SCOPE.md
 CLAUDE.md             per-session rules
 LICENSE               MIT
 data/DATASET_INFO.md  F1.AC3 (PlantVillage license + citation)
-data/advice.json      F7 (all 19 classes, en + bn, no doses/brands)
-models/               F8.AC2 (shipped model, 5.9 MB)
-examples/             F8.AC3 (6 hand-picked + labels.json)
+data/advice.json      F7 (28 classes, en + bn, no doses/brands)
+models/               F8.AC2 (shipped real model, 6.2 MB)
+examples/             F8.AC3 (6 hand-picked real images + labels.json)
 scripts/smoke_test.sh F8.AC4
+scripts/_prewarm_bdleaf.py  one-time cache for fast BdLeaf20 training
 Dockerfile            F8.AC1 (CPU-only torch, non-root, HEALTHCHECK)
 tests/                AC → test mapping (this file is the index)
 ```

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "leafcheck"
-version = "0.1.0"
-description = "LeafCheck: a leaf-disease detector for tomato, potato, maize and bell pepper."
+version = "0.2.0"
+description = "LeafCheck: a plant species identifier for 9 tropical species, trained on the BdLeaf20 leaf-image dataset."
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
 license = { text = "MIT" }

@@ -152,8 +152,8 @@ def test_index_loads_no_external_hosts(dev_server_url, page) -> None:
 def test_language_toggle_persists(dev_server_url, page) -> None:
     """F6.AC2: EN ↔ Bangla toggle persists across reload."""
     page.goto(dev_server_url + "/")
-    # Default: EN. Tagline is the original English string.
-    assert "Detect leaf diseases" in page.text_content("#tagline")
+    # Default: EN. Tagline is the species-identification copy.
+    assert "9 plant species" in page.text_content("#tagline")
     page.click("#langToggle")
     # After click, the page is in Bangla.
     assert "শনাক্ত" in page.text_content("#tagline")

@@ -104,7 +104,9 @@ def _predict_batch(
     return preds, confs
 
 
-def evaluate(model_dir: Path, manifest_path: Path, reports_dir: Path) -> dict:
+def evaluate(
+    model_dir: Path, manifest_path: Path, reports_dir: Path, *, dataset_label: str | None = None
+) -> dict:
     class_names = _load_class_names(model_dir)
     class_to_idx = {c: i for i, c in enumerate(class_names)}
     model = _load_model(model_dir, len(class_names))
@@ -166,6 +168,11 @@ def evaluate(model_dir: Path, manifest_path: Path, reports_dir: Path) -> dict:
         robustness=rob,
         class_names=class_names,
         confusion_matrix_png=cm_png,
+        dataset_label=dataset_label
+        or (
+            'the PlantVillage "color" images, which are lab-style photos taken '
+            "against a plain background with a single leaf in frame"
+        ),
     )
     (reports_dir / "eval.md").write_text(md)
 
@@ -234,7 +241,18 @@ def _build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
-    summary = evaluate(args.model_dir, args.data_root, args.reports_dir)
+    dataset_label: str | None = None
+    if args.config is not None and args.config.exists():
+        import yaml  # local import keeps `--help` cheap
+
+        cfg = yaml.safe_load(args.config.read_text()) or {}
+        dataset_label = cfg.get("dataset_label")
+    summary = evaluate(
+        args.model_dir,
+        args.data_root,
+        args.reports_dir,
+        dataset_label=dataset_label,
+    )
     print(
         json.dumps(
             {

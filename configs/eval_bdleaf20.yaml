@@ -1,0 +1,10 @@
+# Eval config for the BdLeaf20 species-identification model.
+# Used by `python -m leafcheck.evaluate --config configs/eval_bdleaf20.yaml ...`
+# The dataset_label appears in the auto-generated reports/eval.md so the
+# "Limitations (plain language)" section is accurate to the data we
+# actually used (a small public leaf-species dataset, ~40-55 imgs/class).
+dataset_label: >-
+  the BdLeaf20 leaf-image dataset (a small public plant-species
+  identification dataset, ~40-55 images per class, 9 species in this
+  model). The photos are close-up top-down shots of single leaves
+  against varied backgrounds

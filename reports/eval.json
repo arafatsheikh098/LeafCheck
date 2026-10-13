@@ -1,0 +1,164 @@
+{
+  "accuracy": 0.9340659340659341,
+  "macro_f1": 0.9039163565479355,
+  "threshold": {
+    "threshold": 0.69,
+    "target_precision": 0.95,
+    "val_precision_at_threshold": 0.9607843137254902,
+    "val_coverage_at_threshold": 0.8360655737704918,
+    "test_coverage_at_threshold": 0.8791208791208791
+  },
+  "per_class": [
+    {
+      "class": "06_Citrus grandis",
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333333333333333,
+      "support": 8
+    },
+    {
+      "class": "07_Coccinia grandis",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 6
+    },
+    {
+      "class": "08_Codiaeum variegatum",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 7
+    },
+    {
+      "class": "10_Epipremnum aureum",
+      "precision": 0.8,
+      "recall": 0.6666666666666666,
+      "f1": 0.7272727272727273,
+      "support": 6
+    },
+    {
+      "class": "13_Hibiscus rosa sinensis",
+      "precision": 0.9,
+      "recall": 1.0,
+      "f1": 0.9473684210526315,
+      "support": 9
+    },
+    {
+      "class": "14_Lablab purpureus",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "support": 8
+    },
+    {
+      "class": "15_Monoon longifolium",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 12
+    },
+    {
+      "class": "16_Phoenix dactylifera",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 28
+    },
+    {
+      "class": "19_Rosa canina",
+      "precision": 1.0,
+      "recall": 0.5714285714285714,
+      "f1": 0.7272727272727273,
+      "support": 7
+    }
+  ],
+  "robustness": [
+    {
+      "perturbation": "baseline",
+      "accuracy": 0.90625,
+      "n": 32
+    },
+    {
+      "perturbation": "blur_r2",
+      "accuracy": 0.875,
+      "n": 32
+    },
+    {
+      "perturbation": "blur_r4",
+      "accuracy": 0.875,
+      "n": 32
+    },
+    {
+      "perturbation": "bright_1.2",
+      "accuracy": 0.9375,
+      "n": 32
+    },
+    {
+      "perturbation": "bright_0.8",
+      "accuracy": 0.9375,
+      "n": 32
+    },
+    {
+      "perturbation": "contrast_1.2",
+      "accuracy": 0.9375,
+      "n": 32
+    },
+    {
+      "perturbation": "contrast_0.8",
+      "accuracy": 0.90625,
+      "n": 32
+    },
+    {
+      "perturbation": "jpeg_50",
+      "accuracy": 0.90625,
+      "n": 32
+    },
+    {
+      "perturbation": "jpeg_20",
+      "accuracy": 0.90625,
+      "n": 32
+    },
+    {
+      "perturbation": "rot_5",
+      "accuracy": 0.9375,
+      "n": 32
+    },
+    {
+      "perturbation": "rot_neg_5",
+      "accuracy": 0.90625,
+      "n": 32
+    },
+    {
+      "perturbation": "center_crop_0.8",
+      "accuracy": 0.9375,
+      "n": 32
+    }
+  ],
+  "confidence_buckets": [
+    {
+      "lo": 0.0,
+      "hi": 0.5,
+      "n": 5,
+      "accuracy": 0.6
+    },
+    {
+      "lo": 0.5,
+      "hi": 0.8,
+      "n": 10,
+      "accuracy": 0.7
+    },
+    {
+      "lo": 0.8,
+      "hi": 0.95,
+      "n": 17,
+      "accuracy": 1.0
+    },
+    {
+      "lo": 0.95,
+      "hi": 1.0001,
+      "n": 59,
+      "accuracy": 0.9830508474576272
+    }
+  ]
+}

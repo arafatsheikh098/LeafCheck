@@ -13,11 +13,35 @@ const state = {
 
 function applyI18n() {
   document.documentElement.lang = state.lang;
-  for (const id of ["title", "tagline", "pickOrDrop", "pickButton", "useCamera", "predict", "disclaimer"]) {
+  for (const id of [
+    "title",
+    "tagline",
+    "pickOrDrop",
+    "pickButton",
+    "useCamera",
+    "predict",
+    "disclaimer",
+    "knownSpeciesHeading",
+    "knownSpeciesIntro",
+    "moreSpeciesHeading",
+    "moreSpeciesBody",
+  ]) {
     const el = document.getElementById(id);
     if (el) el.textContent = t(id, state.lang);
   }
+  // The 3-step list ("moreSpeciesSteps") is a single block of <li> per
+  // language; re-render on language change so the visible list matches.
+  renderMoreSpeciesSteps();
   document.getElementById("langToggle").textContent = t("langToggle", state.lang);
+}
+
+function renderMoreSpeciesSteps() {
+  const ol = document.getElementById("moreSpeciesSteps");
+  if (!ol) return;
+  const items = t("moreSpeciesSteps", state.lang);
+  ol.innerHTML = items
+    .map((s) => `<li>${s.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</li>`)
+    .join("");
 }
 
 function setLang(lang) {
@@ -205,6 +229,26 @@ function wireDropzone() {
   });
 }
 
+async function loadKnownSpecies() {
+  // Fetches the trained class list from the API and renders it as a
+  // chip-list so the user knows what the model can identify before
+  // they upload. Pure presentation; never blocks the rest of the page.
+  try {
+    const r = await fetch("/api/classes");
+    if (!r.ok) return;
+    const body = await r.json();
+    const list = body.classes || [];
+    const ul = document.getElementById("knownSpeciesList");
+    if (!ul) return;
+    ul.innerHTML = list
+      .map((cls) => `<li class="chip">${escapeHtml(cls)}</li>`)
+      .join("");
+  } catch {
+    // network or parse failure — leave the section empty rather than
+    // blocking the page; the rest of the UI still works.
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   applyI18n();
   $("#pickButton").addEventListener("click", pickFile);
@@ -212,4 +256,5 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#predict").addEventListener("click", predict);
   $("#langToggle").addEventListener("click", () => setLang(state.lang === "en" ? "bn" : "en"));
   wireDropzone();
+  loadKnownSpecies();
 });

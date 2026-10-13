@@ -1,26 +1,26 @@
 {
   "leaf_00.jpg": {
-    "expected_class": "class_0",
-    "description": "Hand-picked synthetic image (generator=gradient_1, seed=9000) expected to predict class_0."
+    "expected_class": "06_Citrus grandis",
+    "description": "Hand-picked leaf image of 06_Citrus grandis from the BdLeaf20 dataset (source=Sp06_Lf40.png, down-scaled to 224x224 JPEG)."
   },
   "leaf_01.jpg": {
-    "expected_class": "class_1",
-    "description": "Hand-picked synthetic image (generator=gradient_2, seed=9001) expected to predict class_1."
+    "expected_class": "07_Coccinia grandis",
+    "description": "Hand-picked leaf image of 07_Coccinia grandis from the BdLeaf20 dataset (source=Sp07_Lf04.png, down-scaled to 224x224 JPEG)."
   },
   "leaf_02.jpg": {
-    "expected_class": "class_2",
-    "description": "Hand-picked synthetic image (generator=gradient_3, seed=9002) expected to predict class_2."
+    "expected_class": "10_Epipremnum aureum",
+    "description": "Hand-picked leaf image of 10_Epipremnum aureum from the BdLeaf20 dataset (source=Sp10_Lf36.png, down-scaled to 224x224 JPEG)."
   },
   "leaf_03.jpg": {
-    "expected_class": "class_3",
-    "description": "Hand-picked synthetic image (generator=solid_a, seed=9003) expected to predict class_3."
+    "expected_class": "13_Hibiscus rosa sinensis",
+    "description": "Hand-picked leaf image of 13_Hibiscus rosa sinensis from the BdLeaf20 dataset (source=Sp13_Lf07.png, down-scaled to 224x224 JPEG)."
   },
   "leaf_04.jpg": {
-    "expected_class": "class_4",
-    "description": "Hand-picked synthetic image (generator=solid_b, seed=9004) expected to predict class_4."
+    "expected_class": "16_Phoenix dactylifera",
+    "description": "Hand-picked leaf image of 16_Phoenix dactylifera from the BdLeaf20 dataset (source=Sp16_Lf01.png, down-scaled to 224x224 JPEG)."
   },
   "leaf_05.jpg": {
-    "expected_class": "class_5",
-    "description": "Hand-picked synthetic image (generator=solid_c, seed=9005) expected to predict class_5."
+    "expected_class": "19_Rosa canina",
+    "description": "Hand-picked leaf image of 19_Rosa canina from the BdLeaf20 dataset (source=Sp19_Lf03.png, down-scaled to 224x224 JPEG)."
   }
 }

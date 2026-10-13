@@ -24,8 +24,13 @@ logger = logging.getLogger(__name__)
 def create_app() -> FastAPI:
     app = FastAPI(
         title="LeafCheck",
-        version="0.1.0",
-        description="Leaf disease detector for tomato, potato, maize and bell pepper.",
+        version="0.2.0",
+        description=(
+            "Plant species identifier for 9 tropical species (BdLeaf20). "
+            "Identifies which plant species a single leaf belongs to and "
+            "returns a short care note (light, water, soil, common pests) "
+            "in English or Bangla."
+        ),
     )
 
     # M5: try to load the predictor at startup. If the model file is

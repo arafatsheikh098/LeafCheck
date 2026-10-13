@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#2f7a3d" />
-  <title>LeafCheck — leaf disease detector</title>
+  <title>LeafCheck — plant species identifier</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header>
     <div>
       <h1 id="title">LeafCheck</h1>
-      <p class="tagline" id="tagline">Detect leaf diseases on tomato, potato, maize and bell pepper.</p>
+      <p class="tagline" id="tagline">Identify 9 plant species from a single leaf photo.</p>
     </div>
     <button id="langToggle" class="lang-toggle" type="button">EN</button>
   </header>
@@ -26,15 +26,33 @@
       <img id="preview" alt="" />
     </section>
 
-    <button id="predict" type="button" disabled>Diagnose</button>
+    <button id="predict" type="button" disabled>Identify</button>
 
     <section id="result" aria-live="polite"></section>
+
+    <section id="speciesGallery" class="species-gallery" aria-label="Species the model knows">
+      <h2 id="knownSpeciesHeading">Species the model can identify</h2>
+      <p id="knownSpeciesIntro">The model is trained on BdLeaf20 — close-up photos of single leaves on plain backgrounds. Best results on similar photos.</p>
+      <ul id="knownSpeciesList"></ul>
+    </section>
+
+    <section id="moreSpecies" class="more-species" aria-label="Train on more species">
+      <h2 id="moreSpeciesHeading">Want more species?</h2>
+      <p id="moreSpeciesBody">The same pipeline can be retrained on any leaf-image dataset. The plan and the commands are in the project README under <em>Roadmap: more species</em>.</p>
+      <ol id="moreSpeciesSteps">
+        <li>Collect (or download) ~50+ photos per new species.</li>
+        <li>Drop them into a folder, one subdirectory per species.</li>
+        <li>Run <code>python -m leafcheck.data prepare --source &lt;folder&gt; --out data/</code> then <code>python -m leafcheck.train --config configs/bdleaf20.yaml</code> — that's it, the same pipeline.</li>
+      </ol>
+    </section>
   </main>
 
   <footer class="disclaimer" id="disclaimer">
-    This tool is a research preview. The model was trained on lab-style photos (PlantVillage).
-    Real field photos will give less reliable results. Always confirm with your local
-    agricultural extension service before applying any treatment.
+    This tool is a research preview. The model was trained on the BdLeaf20 leaf-image
+    dataset (9 tropical plant species, single-leaf close-ups on plain backgrounds).
+    It identifies plant species, not diseases. Real field photos will be less reliable.
+    Always confirm with a botanist or local extension service before relying on the
+    result for any decision.
   </footer>
 
   <script type="module" src="./app.js"></script>
