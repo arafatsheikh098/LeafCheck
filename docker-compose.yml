@@ -1,0 +1,12 @@
+services:
+  leafcheck:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: leafcheck_app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
