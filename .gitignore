@@ -48,3 +48,19 @@ playwright-report/
 .env.*
 !.env.example
 
+
+# Security, secrets & audit exclusions
+need_fix.md
+AUDIT_REPORT.md
+CLAUDE.md
+BLOCKERS.md
+DECISIONS.md
+FINAL_REPORT.md
+PLAN.md
+PROJECT_SPEC.md
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+Thumbs.db

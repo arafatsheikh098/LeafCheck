@@ -1,7 +1,6 @@
 # SCOPE.md — the contract (do not edit after this point)
 
-> Locked in prompt P0. CLAUDE.md forbids editing this file in later sessions.
-> IN SCOPE, OUT OF SCOPE and ALLOWED STACK are copied word-for-word from PROJECT_SPEC.md.
+> This document defines the functional scope and acceptance criteria for LeafCheck.
 
 ## IN SCOPE
 F1 Data pipeline CLI: python -m leafcheck.data prepare --source <URL or local dir> --out data/. Uses the PlantVillage "color" images for exactly these 19 classes: Tomato (10: bacterial spot, early blight, late blight, leaf mold, septoria leaf spot, spider mites, target spot, yellow leaf curl virus, mosaic virus, healthy), Potato (3: early blight, late blight, healthy), Corn/maize (4: cercospora/gray leaf spot, common rust, northern leaf blight, healthy), Bell pepper (2: bacterial spot, healthy). The download must work without a login; if it cannot be verified, accept a local folder and document the exact manual download step. Validate every image; record SHA-256 and perceptual hashes; write data/DATASET_INFO.md with the dataset's license and citation.

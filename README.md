@@ -283,7 +283,7 @@ If you don't want to add species but want a stronger model on the existing 9:
 
 ### Out-of-scope (per `SCOPE.md`)
 
-The roadmap above stays inside the original scope: 4 crops × a few diseases or a moderate list of species, CPU-only inference, no retraining from the web UI, no analytics. Anything that would push the model into "real production" territory (rate limiting, auth, TLS, model registry, retraining-on-upload) is in [`BACKLOG.md`](BACKLOG.md) and not on this roadmap.
+The roadmap above stays inside the original scope: 4 crops × a few diseases or a moderate list of species, CPU-only inference, no retraining from the web UI, no analytics. Anything that would push the model into "real production" territory (rate limiting, auth, TLS, model registry, retraining-on-upload) is considered out of scope for this preview and not on this roadmap.
 
 ---
 
