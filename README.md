@@ -43,6 +43,18 @@ python -m leafcheck.evaluate --model-dir models/ --data-root data/manifest.csv -
 
 ---
 
+## Visual Tour & Screenshots
+
+| Web Interface (Photo Dropzone) | Prediction Result & Care Guide |
+| :---: | :---: |
+| ![Web Interface](docs/screenshots/01-landing.png) | ![Prediction Result](docs/screenshots/02-prediction.png) |
+
+| Localized Bangla Interface | Model Evaluation Confusion Matrix |
+| :---: | :---: |
+| ![Bangla UI](docs/screenshots/03-bangla.png) | ![Confusion Matrix](docs/screenshots/04-confusion-matrix.png) |
+
+---
+
 ## What you can do with it
 
 - 📷 **Take a photo** from your phone, or **upload** one from your photo library. Works on a 375 px-wide mobile screen with no horizontal scroll.
